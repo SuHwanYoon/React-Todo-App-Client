@@ -8,7 +8,7 @@ function App() {
       <FirstComponent></FirstComponent>
       <SecondComponent></SecondComponent>
       <ThirdComponent></ThirdComponent>
-      <ForthComponent></ForthComponent>
+      <FourthComponent></FourthComponent>
     </div>
   );
 }
@@ -34,10 +34,10 @@ class ThirdComponent extends Component{
   }
 }
 
-class ForthComponent extends Component{
+class FourthComponent extends Component{
   render(){
     return(
-      <div className='ForthComponent'>Forth Component</div>
+      <div className='FourthComponent'>Fourth Component</div>
     )
   }
 }
