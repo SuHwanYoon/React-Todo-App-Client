@@ -3,6 +3,7 @@ import SecondComponent from './SecondComponent';
 import ThirdComponent from './ThirdComponent';
 import FourthComponent from './ForthComponent';
 import { FifthComponent } from './FirstComponent';
+import LearningJavaScript from '../LearningJavaScript';
 
 export default function LearningComponent() {
     return (
@@ -12,6 +13,7 @@ export default function LearningComponent() {
         <ThirdComponent/>
         <FourthComponent/>
         <FifthComponent/>
+        <LearningJavaScript/>
       </div>
     );
   }
