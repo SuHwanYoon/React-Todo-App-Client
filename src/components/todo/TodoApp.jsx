@@ -29,7 +29,10 @@ function LoginComponent(){
         setPassword(event.target.value);
     }
 
-
+    function hanleSubmit() {
+        console.log(username);
+        console.log(password);
+    }
 
     return(
         <div className="Login">
@@ -43,7 +46,7 @@ function LoginComponent(){
                     <input type="password" name="password" value={password} onChange={handlePasswordChange}/>
                 </div>
                 <div>
-                    <button type="button" name="login">Login</button>
+                    <button type="button" name="login" onClick={hanleSubmit}>Login</button>
                 </div>
             </div>
         </div>
