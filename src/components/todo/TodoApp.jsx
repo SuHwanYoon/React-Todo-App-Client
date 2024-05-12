@@ -7,21 +7,28 @@ export default function TodoApp(){
     return(
         <div className="TodoApp">
             <BrowserRouter>
+                {/* 어느화면에서도 보이는 헤더 컴포넌트 */}
+                <HeaderComponent/>
+
                 <Routes>
                     <Route >
-                        {/* url path에 따라 보여줄 컴포넌트를 설정 js표현식을 사용할때는 ''사용하면 안된다*/}
+                        {/* url path에 따라 보여줄 컴포넌트를 설정 js표현식을 사용할때는 ''를 사용하면 안된다*/}
                         <Route path='/' element={ <LoginComponent /> }/>
                         <Route path='/login' element={ <LoginComponent /> }/>
                         {/* welcome/ Url뒤에 입력되는 username값을 WelcomeComponent에 인자값으로 넘겨준다   */}
                         <Route path='/welcome/:username' element={ <WelcomeComponent/> }/>
                         {/* 지정한 url이 /todos일시 ListTodosComponent를 보여준다 */}
                         <Route path='/todos' element={<ListTodosComponent/>}/>
-                        
+                        {/* 지정한 url이 /logout일시 LogoutComponent를 보여준다 */}
+                        <Route path='/logout' element={<LogoutComponent/>}/>
+
                         {/* 지정한 url이외의 url일시에 error페이지를 보여준다 */}
                         <Route path='*' element={<ErrorComponent/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>
+            {/* 어느화면에서도 보이는 푸터 컴포넌트 */}
+            <FooterComponent/>
         </div>
     )
 }
@@ -171,10 +178,12 @@ function ListTodosComponent(){
                     ]
 
     return(
-        <div className="ListTodosComponent">
+        // 부트스트랩 사용
+        <div className="container">
             <h1>Todo List</h1>
             <div>
-                <table>
+             {/* 부트스트랩 사용 */}
+                <table className='table'>
                     <thead>
                         <tr>
                             <td>ID</td>
@@ -205,6 +214,34 @@ function ListTodosComponent(){
                     </tbody>
                 </table>
             </div>
+        </div>
+    )
+}
+
+//어떤화면에서도 보이는 헤더 컴포넌트
+function HeaderComponent(){
+    return(
+        <div className="hader">
+            Header<hr/>
+        </div>
+    )
+}
+
+
+//어떤화면에서도 보이는 푸터 컴포넌트
+function FooterComponent(){
+    return(
+        <div className="footer">
+            <hr/>Footer
+        </div>
+    )
+}
+
+//로그아웃 컴포넌트
+function LogoutComponent(){
+    return(
+        <div className="LogoutComponent">
+            <h1>Logout Success!</h1>
         </div>
     )
 }
