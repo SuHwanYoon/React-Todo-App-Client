@@ -7,7 +7,6 @@ function WelcomeComponent(){
 
     const {username} = useParams()
 
-    console.log(username)
 
     return(
         <div  className="Welcome">

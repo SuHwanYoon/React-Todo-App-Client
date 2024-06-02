@@ -2,6 +2,7 @@
 import { useState } from 'react'
 //useNavigate: 탐색(navigation)을 위한 함수를 반환하는 훅입니다. (v6 이상)
 import { useNavigate} from 'react-router-dom'
+import { useAuth } from './security/AuthContext'
 
 
 function LoginComponent(){
@@ -10,12 +11,12 @@ function LoginComponent(){
     //useState Hook의 초기값은 비어있음 상태를 변화시킬 메서드는 setPassword
     const [password, setPassword] = useState('')
     
-    //로그인 성공상태를 나타낼 useState메서드 초기값은 false
-    const [showSuccessMessage, setSuccessMessage] = useState(false)
     //로그인 실패상태를 나타낼 useState메서드 초기값은 false
     const [showErrorMessage, setErrorMessage] = useState(false)
     //페이지 리다렉트를 위해서 useNavicate 사용
     const navigate = useNavigate();
+    //만들어둔 useContext Hook 사용
+    const authContext = useAuth()
 
     function handleUserNameChange(event){
         // console.log(event.target.value);
@@ -30,46 +31,16 @@ function LoginComponent(){
     }
 
     function hanleSubmit() {
-        if (username === 'yoon' && password === 'dummy') {
-            console.log('success')
-            // 로그인성공시 성공상태 메세지 설정 메서드를 true값으로 호출
-            setSuccessMessage(true)
-            // 로그인성공시 실패상태 메세지 설정 메서드를 false값으로 호출
-            setErrorMessage(false)
+        //인증 컨텍스트가 true이면
+        if (authContext.login(username,password)) {
             // 로그인 성공시 입력한 username 경로의 welcomeComponet로 리다이렉트
             // 문자열 내부에 변수나 표현식을 넣고 싶으면 ``백틱을 사용
             navigate(`/welcome/${username}`)
         }else{
-            // 로그인실패시 성공상태 메세지 설정 메서드를 false값으로 호출
-            setSuccessMessage(false)
             // 로그인실패시 실패상태 메세지 설정 메서드를 true값으로 호출
             setErrorMessage(true)
-            console.log('failed')
         }
     }
-    // //로그인 성공 컴포넌트
-    // function SuccessMessageComponent() {
-    //     // 로그인 성공상태 변수가 true라면
-    //     if (showSuccessMessage) {
-    //         //로그인 성공메세지를 반환
-    //         return <div className='successMessage'>Login Success!</div>
-    //     }
-    //     // 로그인 성공상태 변수가 false라면
-    //     // null을 반환
-    //     return null
-    // }
-
-    // //로그인 실패 컴포넌트
-    // function ErrorMessageComponent() {
-    //     // 로그인 실패상태 변수가 true라면
-    //     if (showErrorMessage) {
-    //         //로그인 실패메세지를 반환
-    //         return  <div className='errorMessage'>Login Failed....  Please Check Your ID&Password</div>
-    //     }
-    //     // 로그인 실패상태 변수가 false라면
-    //     // null을 반환
-    //     return null
-    // }
     
     //Login component의 return - login form 제출
     return(
@@ -82,8 +53,6 @@ function LoginComponent(){
             {/* 컴포넌트로 사용하기에는 작아서 메서드를 이용해서 메세지를 출력  */}
 
             <h1>Login Page</h1>
-            {/* 로그인 성공상태 변수가 true라면 로그인 성공메세지를 반환 */}
-            {showSuccessMessage && <div className='successMessage'>Login Success!</div>}
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}
             {showErrorMessage && <div className='errorMessage'>Login Failed....  Please Check Your ID&Password</div>}
 
