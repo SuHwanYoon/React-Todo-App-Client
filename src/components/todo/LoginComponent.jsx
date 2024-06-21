@@ -52,6 +52,8 @@ function LoginComponent(){
 
             {/* 컴포넌트로 사용하기에는 작아서 메서드를 이용해서 메세지를 출력  */}
 
+            <h1>Test Id: yoon  PW: dummy</h1>
+            <br />
             <h1>Login Page</h1>
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}
             {showErrorMessage && <div className='errorMessage'>Login Failed....  Please Check Your ID&Password</div>}
