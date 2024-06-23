@@ -33,7 +33,7 @@ function LoginComponent(){
     function hanleSubmit() {
         //인증 컨텍스트가 true이면
         if (authContext.login(username,password)) {
-            // 로그인 성공시 입력한 username 경로의 welcomeComponet로 리다이렉트
+            // 로그인인증 성공시 welcomeComponet로 입력한 {username} 값을 담아 리다이렉트
             // 문자열 내부에 변수나 표현식을 넣고 싶으면 ``백틱을 사용
             navigate(`/welcome/${username}`)
         }else{
