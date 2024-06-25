@@ -5,6 +5,7 @@ import ListTodosComponent from './ListTodosComponent'
 import ErrorComponent from './ErrorComponent'
 import WelcomeComponent from './WelcomeComponent'
 import LoginComponent from './LoginComponent'
+import TodoComponent from './TodoComponent'
 //react-router-dom 라이브러리를 추가하고 import
 //BrowserRouter: HTML5의 history API를 사용하여 UI를 URL과 동기화하는 라우터 컴포넌트.
 //Route: 특정 경로에 매칭되는 컴포넌트를 렌더링하는 역할.
@@ -54,6 +55,14 @@ export default function TodoApp(){
                                 // 라우트인증이 필요한 컴포넌트를 함수로 감싸주기
                                 <AuthenticatedRoute>
                                     <ListTodosComponent/>
+                                </AuthenticatedRoute>
+                                }/>
+
+                            {/* 지정한 url이 /todos/:id일시(동적 segment) TodoComponent를 보여준다 */}
+                            <Route path='/todo/:id' element={
+                                // 라우트인증이 필요한 컴포넌트를 함수로 감싸주기
+                                <AuthenticatedRoute>
+                                    <TodoComponent/>
                                 </AuthenticatedRoute>
                                 }/>
                             {/* 지정한 url이 /logout일시 LogoutComponent를 보여준다 */}

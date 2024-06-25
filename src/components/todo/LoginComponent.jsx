@@ -35,6 +35,7 @@ function LoginComponent(){
         if (authContext.login(username,password)) {
             // 로그인인증 성공시 welcomeComponet로 입력한 {username} 값을 담아 리다이렉트
             // 문자열 내부에 변수나 표현식을 넣고 싶으면 ``백틱을 사용
+            // 페이지 리다이렉트
             navigate(`/welcome/${username}`)
         }else{
             // 로그인실패시 실패상태 메세지 설정 메서드를 true값으로 호출
