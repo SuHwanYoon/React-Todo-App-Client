@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom"
-import { getSpecificTodoApi } from "./api/TodoApiService"
+import { useNavigate, useParams } from "react-router-dom"
+import { getSpecificTodoApi, updateTodoApi } from "./api/TodoApiService"
 import { useAuth } from "./security/AuthContext"
 import { useEffect, useState } from "react"
 import { ErrorMessage, Field, Form, Formik } from "formik"
@@ -9,6 +9,8 @@ export default function TodoComponent() {
     const {id} = useParams()
     //인증 컨텍스트 가져오기
     const authContext = useAuth()
+    //리다이렉트를 위한 Hook
+    const navigate = useNavigate()
     //인증 컨텍스트에서 인증된 username가져오기
     const username = authContext.username
     //할일 내용 설정하기
@@ -26,7 +28,7 @@ export default function TodoComponent() {
         }, [id]
     )
 
-    //특정 Todo 호출 api 함수 (update 버튼 클릭시)
+    //특정 Todo 호출 api 함수 (useEffect)
     function getSpecificTodo() {
         getSpecificTodoApi(username,id)
         .then(response => {
@@ -39,9 +41,27 @@ export default function TodoComponent() {
     )
         .catch(error => console.log(error))
     }
-
+    //Todo 갱신 api 호출 함수 (save 버튼 클릭시)
     function onSubmit(values) {
         console.log(values)
+        const todo = {
+            id: id,
+            username: username,
+            // 제출한 필드 입력값 설정 name 속성으로 추적
+            description: values.description,
+            targetDate: values.targetDate,
+            done: false
+        }
+        console.log(todo)
+        // Put Request
+        updateTodoApi(username, id, todo)
+        .then(response => {
+            console.log(response)
+            //api 호출 성공시 useNavigate Hook으로 인한 리다이렉트
+            navigate('/todos')
+        }
+    )
+        .catch(error => console.log(error))
     }
     //formik 유효성 검사 함수
     function validate(values) {
