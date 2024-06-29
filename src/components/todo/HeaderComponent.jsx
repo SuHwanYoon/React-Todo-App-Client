@@ -8,11 +8,12 @@ function HeaderComponent(){
 
     //import한 AuthContext를 사용하는 hook
     // const authContext = useContext(AuthContext)
-
     //만들어둔 useContext Hook 사용
     const authContext = useAuth()
     // context boolean변수값 가져오기
     const isAuthenticated = authContext.isAuthenticated
+    // 인증된 username값을 가져오기
+    const username = authContext.username
 
     function logout() {
         //로그아웃 버튼을 눌렀을때  AuthContext에서 logout함수 호출
@@ -45,7 +46,7 @@ function HeaderComponent(){
                    {/* 헤더 컴포넌트만 리로드 하기위해서 Link,to태그사용 */}
                                    <li className="nav-item fs-5">
                                    {/* JSX를 사용해서 isAuthenticated값이 true일때만 Home 링크를 보여주기 */}
-                                        {isAuthenticated && <Link className="nav-link" to="/welcome/in28minutes">Home</Link>}
+                                        {isAuthenticated && <Link className="nav-link" to={`/welcome/${username}`}>Home</Link>}
                                     </li>
                                    <li className="nav-item fs-5">
                                    {/* JSX를 사용해서 isAuthenticated값이 true일때만 Todos 링크를 보여주기 */}
