@@ -67,13 +67,18 @@ function ListTodosComponent(){
         .catch( error => console.log(error) )
     }
 
-        //갱신 버튼 클릭시 실행함수
+        // Update 버튼 클릭시 실행함수
         function updateTodo(id) {
             console.log('clicked' + id)
             //동적세그먼트 id 값을 사용해 리다이렉트
             navigate(`/todo/${id}`)
         }
 
+        //Add New Todo 버튼 클릭시 실행함수
+        function addNewTodo() {
+            //URL {id} 값을 -1(문자열)로 하드코딩해 필드값이 비어있는 TodoConponet로 리다이렉트
+            navigate(`/todo/-1`)
+        }
 
     return(
         // 부트스트랩 사용- container
@@ -123,6 +128,7 @@ function ListTodosComponent(){
                     </tbody>
                 </table>
             </div>
+            <div className="btn btn-success m-5" onClick={addNewTodo}>Add New Todo</div>
         </div>
     )
 }

@@ -17,7 +17,16 @@ const apiClient = axios.create(
 export const getHelloWorldBean 
     = () =>apiClient.get("/hello-world-bean");
 
-
+// Response to preflight request doesn't pass access control check
 export const getHelloWorldBeanPathVariable 
         //템플릿 리터럴을 사용해서 paramater의 변수값을 ${username}을 통해 삽입
-    = (username) => apiClient.get(`/hello-world/path-variable/${username}`);
+    = (username) => apiClient.get(`/hello-world/path-variable/${username}`,
+        //SpringSecurity를 설정했기 때문에 인증객체 건네기
+        {
+            //헤더객체
+            headers: {
+                //SpringScutiry에서 설정된 name,PW의 인코딩 문자열 
+                Authorization: 'Basic eW9vbjpkdW1teQ=='
+            }
+        }
+    );
