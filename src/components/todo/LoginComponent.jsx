@@ -29,10 +29,10 @@ function LoginComponent(){
         //password input에 값을 입력할때마다 상태를 변화시키는 setPassword메서드를 호출한다
         setPassword(event.target.value);
     }
-
-    function hanleSubmit() {
-        //인증 컨텍스트가 true이면
-        if (authContext.login(username,password)) {
+    // async로 hanleSubmit가 비동기작업을 시행함을 명시
+    async function hanleSubmit() {
+        //비동기작업이 완료될때 까지 기다리고 인증 컨텍스트가 true이면
+        if (await authContext.login(username,password)) {
             // 문자열 내부에 변수나 표현식을 넣고 싶으면 ``백틱을 사용
             // 로그인인증 성공시 welcomeComponet페이지로 입력한 {username} 값을 담아 리다이렉트
             navigate(`/welcome/${username}`)
@@ -52,7 +52,7 @@ function LoginComponent(){
 
             {/* 컴포넌트로 사용하기에는 작아서 메서드를 이용해서 메세지를 출력  */}
 
-            <h1>Test Id: yoon  PW: dummy</h1>
+            <h1>Test ID: yoon  PW: dummy</h1>
             <br />
             <h1>Login Page</h1>
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}

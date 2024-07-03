@@ -3,6 +3,7 @@
 import {Link,useParams } from 'react-router-dom'
 import { useState } from 'react'
 import {getHelloWorldBeanPathVariable } from './api/HelloWorldApiService'
+import { useAuth } from './security/AuthContext'
 
 
 function WelcomeComponent(){
@@ -10,6 +11,8 @@ function WelcomeComponent(){
     const {username} = useParams()
     // Reatapi를 호출했을때의 상태를 나타내는 Hook
     const [message,setMessage]= useState(null)
+    //token값가져오기 위해 context 가져오기
+    const authContext = useAuth()
 
     //axios를 사용해서 restapi를 호출하는 함수
     function callHelloWorldRestApi() {
@@ -26,8 +29,8 @@ function WelcomeComponent(){
         // .catch( (error) => errorResponse(error) )
         // .finally( () => console.log('clean up') )
 
-        //username값이 입력된 api 호출
-        getHelloWorldBeanPathVariable('yoon')
+        //username값이 입력된 api 호출 인증 컨텍스트의 username, token을 argument로 설정
+        getHelloWorldBeanPathVariable(authContext.username,authContext.token)
         .then( (response) => successfulResponse(response) )
         .catch( (error) => errorResponse(error) )
         .finally( () => console.log('clean up') )
