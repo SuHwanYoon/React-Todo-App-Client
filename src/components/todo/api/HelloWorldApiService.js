@@ -26,19 +26,4 @@ export const getHelloWorldBeanPathVariable =
       // }
     );
 
-//  preflight Options메서드 리퀘스트 요청은 서버쪽에서 설정해준다
-//기본인증 URL 호출 service
-export const getBasicAuthCheck =
-  //클라이언트에서 token을  paramater로 서버로 보내기
-  (token) =>
-    apiClient.get(
-      `/basicauth`,
-      //SpringSecurity를 설정했기 때문에 인증객체 건네기
-      {
-        //헤더객체
-        headers: {
-          //Authorization 프로퍼티에 token을 담는다 
-          Authorization: token
-        }
-      }
-    );
+

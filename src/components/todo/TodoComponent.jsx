@@ -22,6 +22,8 @@ export default function TodoComponent() {
   const [description, setDescription] = useState("");
   //날짜 설정하기
   const [targetDate, setTargetDate] = useState("");
+  //달성여부 설정하기
+  const [done, setDone] = useState("");
 
   //TodoComponet가 라우팅 될때마다 getSpecificTodo()를 실행
   //의존성배열에 포함된 [id]값이 변경될때도 getSpecificTodo()를 또다시 호출
@@ -31,7 +33,7 @@ export default function TodoComponent() {
     getSpecificTodo();
   }, [id]);
 
-  //특정 Todo 호출 api 함수 (useEffect)
+  //특정 Todo 호출 api 함수 목록에서  update버튼 클릭시 (useEffect)
   function getSpecificTodo() {
     //Url {id}가 -1이 아니면 새로운 Todo게시를 위해 기존 Todo조회 api는 호출하지 않는다
     if (id != -1) {
@@ -42,6 +44,8 @@ export default function TodoComponent() {
           setDescription(response.data.description);
           // 호출성공시 api의 targetDate값을 가져와서 set해준다
           setTargetDate(response.data.targetDate);
+          // API에서 받은 boolean 값을 "Yes" 또는 "No" 문자열로 변환
+          setDone(response.data.done ? "Yes" : "No");
         })
         .catch((error) => console.log(error));
     }
@@ -55,7 +59,9 @@ export default function TodoComponent() {
       // 제출한 필드 입력값 설정 name 속성으로 추적
       description: values.description,
       targetDate: values.targetDate,
-      done: false,
+      // 드롭다운 선택 문자열이 "Yes"일 경우 true, 그 외(즉, "No")일 경우 false로 변환하여 API에 전송
+       // 마지막 프로퍼티에도 ES5이후 , 표시가능 
+      done: values.done === "Yes",
     };
     console.log(todo);
     //Url {id}가 -1이면 (Add New Todo)일때
@@ -111,7 +117,7 @@ export default function TodoComponent() {
         {/* 폼 필드 입력이 변할때마다 유효성검사하는것을 비활성화 */}
         {/* 폼 필드에 포커스가 벗어났을때 유효성검사하는것을 비활성화 */}
         <Formik
-          initialValues={{ description, targetDate }}
+          initialValues={{ description, targetDate, done }}
           enableReinitialize={true}
           onSubmit={onSubmit}
           validate={validate}
@@ -147,6 +153,15 @@ export default function TodoComponent() {
               <fieldset className="form-group">
                 <label>Target Date</label>
                 <Field type="date" className="form-control" name="targetDate" />
+              </fieldset>
+              {/* 새로 추가된 'Is Done?' 드롭다운 필드 */}
+              <fieldset className="form-group">
+                <label>Is Done?</label>
+                {/* select,textarea 요소는 as 타입에 설정 */}
+                <Field as="select" className="form-control" name="done">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </Field>
               </fieldset>
               <div>
                 {/* formik를 사용해서 input태그에 onChange를 쓰지않아도 자동으로 변화된 입력데이터를 제출 */}
