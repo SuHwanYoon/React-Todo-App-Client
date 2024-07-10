@@ -2,7 +2,7 @@
 function ErrorComponent(){
     return(
         <div className="ErrorComponent">
-            <h1>Sorry! Page not found</h1>
+            <h1>잘못된 접근입니다 - 라우팅 문제_404 Error</h1>
         </div>
     )
 }
