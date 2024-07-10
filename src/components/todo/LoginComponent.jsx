@@ -56,7 +56,7 @@ function LoginComponent(){
             <br />
             <h1>Login Page</h1>
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}
-            {showErrorMessage && <div className='errorMessage'>Login Failed....  Please Check Your ID&Password</div>}
+            {showErrorMessage && <div className='errorMessage'>로그인 실패 ID와PW를 확인해주세요</div>}
 
             <div className="LoginForm">
                 <div>
