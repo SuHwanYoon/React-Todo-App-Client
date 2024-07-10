@@ -41,6 +41,8 @@ export default function TodoApp(){
                             {/* url path에 따라 보여줄 컴포넌트를 설정 js표현식을 사용할때는 ''를 사용하면 안된다*/}
                             <Route path='/' element={ <LoginComponent /> }/>
                             <Route path='/login' element={ <LoginComponent /> }/>
+                            {/* github pages URL일시에 로그인페이지 라우팅 */}
+                            <Route path='/React-Todo-App-Client' element={ <LoginComponent /> }/>
 
                             {/* welcome/ Url뒤에 입력되는 username값을 WelcomeComponent에 인자값으로 넘겨준다   */}
                             <Route path='/welcome/:username' element={
