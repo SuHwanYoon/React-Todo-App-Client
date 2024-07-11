@@ -8,3 +8,4 @@
   to = "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com/:splat"
   status = 200
   force = true
+  headers = {X-From = "Netlify"}
