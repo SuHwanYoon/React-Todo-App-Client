@@ -2,8 +2,9 @@ import axios from "axios";
 
 
 const host = window.location.hostname === "localhost" 
-  ? "" // 빈 문자열로 설정하여 프록시를 사용
+  ? "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com" // 로컬에서도 백엔드 서버 사용
   : "/api"; // Netlify 프록시를 사용하여 API 요청
+
 
 //Api 호출 Service component에서 import를 통해 사용될 공통 유틸리티
 //axios 인스턴스 생성
