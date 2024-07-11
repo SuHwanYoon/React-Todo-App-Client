@@ -10,6 +10,7 @@ export const apiClient = axios.create(
     // baseURL: "http://localhost:5000",
     // Elastic BeanStalk rest-api URL
     // baseURL: "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com/",
-    baseURL: "https://cors-anywhere.herokuapp.com/http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com",
+    // baseURL: "https://cors-anywhere.herokuapp.com/http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com",
+    baseURL:"/api",
   }
 );
