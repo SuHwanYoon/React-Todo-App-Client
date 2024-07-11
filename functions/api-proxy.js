@@ -1,6 +1,6 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
-exports.handler = (event, context, callback) => {
+export function handler(event, context, callback) {
   const proxy = createProxyMiddleware({
     target: 'http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com',
     changeOrigin: true,
@@ -11,4 +11,4 @@ exports.handler = (event, context, callback) => {
   });
 
   return proxy(event, context, callback);
-};
+}
