@@ -1,24 +1,14 @@
-import { createProxyMiddleware } from 'http-proxy-middleware';
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-export function handler(event, context, callback) {
-  console.log('Received event:', event); // 요청에 대한 로그 추가
-
+exports.handler = (event, context, callback) => {
   const proxy = createProxyMiddleware({
     target: 'http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com',
     changeOrigin: true,
     pathRewrite: {
-      '^/api': '', // remove /api prefix when forwarding to the target
+      '^/api': '',
     },
-    onProxyReq: (proxyReq, req, res) => {
-      // Add custom header to request
-      proxyReq.setHeader('x-added', 'foobar');
-      // Or log the request
-      console.log('Proxy request:', proxyReq);
-    },
-    onProxyRes: (proxyRes, req, res) => {
-      console.log('Proxy response:', proxyRes.statusCode); // 응답에 대한 로그 추가
-    },
+    logLevel: 'debug',  // 로깅 레벨을 디버그로 설정하여 더 많은 정보를 로그에서 확인
   });
 
   return proxy(event, context, callback);
-}
+};
