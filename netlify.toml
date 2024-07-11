@@ -5,6 +5,6 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com/:splat"
+  to = "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com/api/:splat"
   status = 200
   force = true
