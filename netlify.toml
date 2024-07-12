@@ -3,7 +3,8 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/api-proxy/:splat 200"
+  to = "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com/:splat"
+  status = 200
   force = true
 
 
