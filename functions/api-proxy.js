@@ -4,11 +4,10 @@ export function handler(event, context, callback) {
   const proxy = createProxyMiddleware({
     target: 'http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com',
     changeOrigin: true,
-    pathRewrite: {
-      '^/api': '/',
-    },
-    logLevel: 'debug',  // 로깅 레벨을 디버그로 설정하여 더 많은 정보를 로그에서 확인
+    pathRewrite: { '^/api/': '/' },
+    secure: false, // HTTPS 요청을 HTTP 서버로 전달하기 위해
+    logLevel: 'debug'
   });
 
-  return proxy(event, context, callback);
+  proxy(event, context, callback);
 }
