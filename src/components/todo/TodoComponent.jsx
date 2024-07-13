@@ -95,11 +95,11 @@ export default function TodoComponent() {
     };
     // 설명 필드값이 5자 이하이면 에러메세지 출력
     if (values.description.length < 5) {
-      errors.description = "Enter at least 5 characters";
+      errors.description = "적어도 내용을 5글자 이상 입력해주세요";
     }
     //날짜 필드값이 null 이거나 빈문자열이거나 유효하지않는 날짜 형식일때 에러메세지 출력
     if (values.targetDate === null || values.targetDate === "" || !moment(values.targetDate).isValid()) {
-      errors.targetDate = "Enter a targetDate";
+      errors.targetDate = "유효한 날짜를 설정해 주세요";
     }
     console.log(values);
     return errors;

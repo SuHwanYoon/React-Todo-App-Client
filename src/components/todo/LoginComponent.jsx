@@ -55,6 +55,7 @@ function LoginComponent(){
             <h1>Test ID: yoon  PW: dummy</h1>
             <br />
             <h1>Login Page</h1>
+            <h1>AWS FreeTier가 초과될경우 서버중지로 로그인이 실패할수 있습니다.</h1>
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}
             {showErrorMessage && <div className='errorMessage'>로그인 실패 ID와PW를 확인해주세요</div>}
 

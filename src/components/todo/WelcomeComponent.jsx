@@ -49,7 +49,7 @@ function WelcomeComponent(){
 
     return(
         <div  className="Welcome">
-            <h1>Welcome to {username}'s Page!</h1>
+            <h1>{username}의 페이지에 오신것을 환영합니다!</h1>
             <div>
                 {/* 전체페이지 새로고침을 하지않고 WelcomeComponent만 ListTodosComponent 로 새로고침하기위해 Link를 사용  */}
                 Manage you Todos - <Link to='/todos'>Go here</Link>
@@ -57,7 +57,7 @@ function WelcomeComponent(){
             <div>
                 {/* RestApi를 불러올 버튼  */}
                 <button className='btn btn-success m-5' onClick={callHelloWorldRestApi}>
-                    Call Hello World
+                    Hello World Api호출 버튼
                 </button>
             </div>
             <div className='text-info'>
