@@ -50,7 +50,7 @@ function HeaderComponent(){
                                     </li>
                                    <li className="nav-item fs-5">
                                    {/* JSX를 사용해서 isAuthenticated값이 true일때만 Todos 링크를 보여주기 */}
-                                        {isAuthenticated && <Link className="nav-link" to="/todos">Todos</Link>}
+                                        {isAuthenticated && <Link className="nav-link" to="/todos">Todo 페이지</Link>}
                                     </li>
                                </ul>
                            </div>
