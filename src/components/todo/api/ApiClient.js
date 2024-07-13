@@ -1,9 +1,10 @@
 import axios from "axios";
 
 
-const host = window.location.hostname === "localhost" 
-  ? "" 
-  : "/api"; // Netlify 프록시를 사용하여 API 요청
+// 환경 변수에서 API URL 가져오기
+const apiURL = process.env.NODE_ENV === 'production'
+  ? process.env.REACT_APP_API_URL
+  : 'http://localhost:5000'; // 디폴트로 로컬 서버 URL 설정
 
 
 
@@ -18,6 +19,6 @@ export const apiClient = axios.create(
     // Elastic BeanStalk rest-api URL
     // baseURL: "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com/",
     // baseURL: "https://cors-anywhere.herokuapp.com/http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com",
-    baseURL: host,
+    baseURL: apiURL
   }
 );
