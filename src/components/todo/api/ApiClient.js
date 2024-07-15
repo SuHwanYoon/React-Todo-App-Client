@@ -4,7 +4,7 @@ import axios from "axios";
 // 환경 변수에서 API URL 가져오기
 const apiURL = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_URL
-  : 'http://localhost:5000'; // npm run start로 실행할때 디폴트로 SpringBoot 5000 port 서버 URL 설정
+  : 'http://localhost:8080'; // npm run start로 실행할때 디폴트로 SpringBoot 5000 port 서버 URL 설정
 
 
 
