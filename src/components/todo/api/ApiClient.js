@@ -1,13 +1,12 @@
 import axios from "axios";
 
 
-// 환경 변수에서 API URL 가져오기
-const apiURL = process.env.NODE_ENV === 'production'
-  ? process.env.REACT_APP_API_URL
-  : 'http://localhost:8080'; // npm run start로 실행할때 디폴트로 SpringBoot 8080 port 서버 URL 설정
+// 클라이언트의 도메인에 따라 API URL 설정
+const apiURL = window.location.hostname === "localhost" 
+  ? "http://localhost:8080" 
+  : "https://docker-restapi-v2.onrender.com";
 
-  //콘솔확인
-  console.log('API URL:', process.env.REACT_APP_API_URL);
+console.log('API URL:', apiURL);
 
 
 //Api 호출 Service component에서 import를 통해 사용될 공통 유틸리티
