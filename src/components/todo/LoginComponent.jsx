@@ -53,7 +53,7 @@ function LoginComponent(){
             {/* 컴포넌트로 사용하기에는 작아서 메서드를 이용해서 메세지를 출력  */}
 
             <h1>Test ID: yoon  PW: dummy</h1>
-            <strong>이 클라이언트 페이지는 github_pages로 배포되었습니다.</strong>
+            <h2>이 클라이언트 페이지는 github_pages로 배포되었습니다.</h2>
             <strong>Render에 배포된 서버와 연결되어있습니다 Render의 상태의 따라 로그인 실패등 예외가 발생할수 있습니다.</strong>
             <br />
             <h1>Login Page</h1>
