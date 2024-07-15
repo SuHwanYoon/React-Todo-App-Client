@@ -6,6 +6,8 @@ const apiURL = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_URL
   : 'http://localhost:8080'; // npm run start로 실행할때 디폴트로 SpringBoot 8080 port 서버 URL 설정
 
+  //콘솔확인
+  console.log('API URL:', process.env.REACT_APP_API_URL);
 
 
 //Api 호출 Service component에서 import를 통해 사용될 공통 유틸리티
