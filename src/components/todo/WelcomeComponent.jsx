@@ -52,7 +52,7 @@ function WelcomeComponent(){
             <h1>{username}의 페이지에 오신것을 환영합니다!</h1>
             <div>
                 {/* 전체페이지 새로고침을 하지않고 WelcomeComponent만 ListTodosComponent 로 새로고침하기위해 Link를 사용  */}
-                Manage you Todos - <Link to='/todos'>Go here</Link>
+                Todo 페이지 목록 - <Link to='/todos'>바로가기</Link>
             </div>
             <div>
                 {/* RestApi를 불러올 버튼  */}
