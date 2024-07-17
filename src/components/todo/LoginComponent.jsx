@@ -52,11 +52,11 @@ function LoginComponent(){
 
             {/* 컴포넌트로 사용하기에는 작아서 메서드를 이용해서 메세지를 출력  */}
 
-            <h1>Test ID: yoon  PW: dummy</h1>
-            <h2>이 클라이언트 페이지는 github_pages로 배포되었습니다.</h2>
-            <h2>Render에 배포된 서버와 연결되어있습니다 </h2>
-            <strong>Render의 상태의 따라 로그인 실패등 예외가 발생할수 있습니다.</strong>
+            <h6>서버의 상태의 따라 로그인 실패가 발생할수 있습니다.</h6>
+            <h6>서버DB(PostgreSQL) 기간만료시 CRUD 실행 실패가 발생할수 있습니다.</h6>
+            <h6><a href="https://yoonreatclient.netlify.app/">대체 페이지</a></h6>
             <br />
+            <h1>Test ID: yoon  PW: dummy</h1>
             <h1>Login Page</h1>
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}
             {showErrorMessage && <div className='errorMessage'>로그인 실패 ID와PW를 확인해주세요</div>}
