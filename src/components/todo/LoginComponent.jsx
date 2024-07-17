@@ -54,6 +54,7 @@ function LoginComponent(){
 
             <h6>서버의 상태의 따라 로그인 실패가 발생할수 있습니다.</h6>
             <h6>서버DB(PostgreSQL) 기간만료시 CRUD 실행 실패가 발생할수 있습니다.</h6>
+            <h6>이페이지는 서버와의 연결이 느리기 때문에 로그인 버튼 클릭후 충분히 기다려주시기 바랍니다.</h6>
             <h6><a href="https://yoonreatclient.netlify.app/">대체 페이지</a></h6>
             <br />
             <h1>Test ID: yoon  PW: dummy</h1>
