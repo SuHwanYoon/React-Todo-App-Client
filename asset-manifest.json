@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/flyio-client/static/css/main.61685a5c.css",
-    "main.js": "/flyio-client/static/js/main.9c7f8561.js",
+    "main.js": "/flyio-client/static/js/main.b79a8b21.js",
     "static/js/787.2843ca88.chunk.js": "/flyio-client/static/js/787.2843ca88.chunk.js",
     "index.html": "/flyio-client/index.html",
     "main.61685a5c.css.map": "/flyio-client/static/css/main.61685a5c.css.map",
-    "main.9c7f8561.js.map": "/flyio-client/static/js/main.9c7f8561.js.map",
+    "main.b79a8b21.js.map": "/flyio-client/static/js/main.b79a8b21.js.map",
     "787.2843ca88.chunk.js.map": "/flyio-client/static/js/787.2843ca88.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.61685a5c.css",
-    "static/js/main.9c7f8561.js"
+    "static/js/main.b79a8b21.js"
   ]
 }
