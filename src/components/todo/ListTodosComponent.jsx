@@ -125,7 +125,7 @@ function ListTodosComponent() {
                         className="btn btn-warning"
                         onClick={() => deleteTodo(todo.id)}
                       >
-                        Delete
+                        삭제
                       </button>
                     </td>
                     {/* bootstrap 갱신버튼 추가 */}
@@ -134,7 +134,7 @@ function ListTodosComponent() {
                         className="btn btn-success"
                         onClick={() => updateTodo(todo.id)}
                       >
-                        Update
+                        수정
                       </button>
                     </td>
                   </tr>

@@ -108,7 +108,7 @@ export default function TodoComponent() {
   return (
     //bootstrap container
     <div className="container">
-      <h1>Enter Todo Details</h1>
+      <h1>할일 내용 입력란</h1>
       <div>
         {/* api에서 가져온 값을 폼의 입력 초기값으로 설정 name="" 에 매핑 */}
         {/* initialValues가 변경될 때마다 폼의 입력값이 새로운 값으로 다시 초기화*/}
@@ -143,7 +143,7 @@ export default function TodoComponent() {
               />
               {/* bootstrap form-group , form-control */}
               <fieldset className="form-group">
-                <label>Description</label>
+                <label>내용</label>
                 <Field
                   type="text"
                   className="form-control"
@@ -151,12 +151,12 @@ export default function TodoComponent() {
                 />
               </fieldset>
               <fieldset className="form-group">
-                <label>Target Date</label>
+                <label>목표날짜</label>
                 <Field type="date" className="form-control" name="targetDate" />
               </fieldset>
               {/* 새로 추가된 'Is Done?' 드롭다운 필드 */}
               <fieldset className="form-group">
-                <label>Is Done?</label>
+                <label>달성여부</label>
                 {/* select,textarea 요소는 as 타입에 설정 */}
                 <Field as="select" className="form-control" name="done">
                   <option value="No">No</option>
@@ -166,7 +166,7 @@ export default function TodoComponent() {
               <div>
                 {/* formik를 사용해서 input태그에 onChange를 쓰지않아도 자동으로 변화된 입력데이터를 제출 */}
                 <button className="btn btn-success m-5" type="submit">
-                  Save
+                  저장
                 </button>
               </div>
             </Form>

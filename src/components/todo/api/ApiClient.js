@@ -1,13 +1,9 @@
 import axios from "axios";
 
 
-const host = window.location.hostname === "localhost" 
-  ? "" 
-  : "http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk.com"; // AWS Beanstalk 서버
-//fly.io 서버
-//https://docker-deploy-api.fly.dev/
+const host =  "http://3.38.94.180:8080/"; // AWS EC2 서버
 
-
+console.log(host);
 //Api 호출 Service component에서 import를 통해 사용될 공통 유틸리티
 //axios 인스턴스 생성
 export const apiClient = axios.create(
