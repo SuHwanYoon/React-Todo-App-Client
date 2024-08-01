@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 //할일 목록 컴포넌트
 function ListTodosComponent() {
   //날짜를 생성
-  const today = new Date();
+  // const today = new Date();
   //만들어둔 인증 컨텍스트 가져오기
   const authcontext = useAuth();
   //인증컨텍스트에서 username값 가져오기
@@ -17,11 +17,11 @@ function ListTodosComponent() {
   //페이지 리다렉트를 위해서 useNavicate 사용
   const navigate = useNavigate();
 
-  const targetDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDay()
-  );
+  // const targetDate = new Date(
+  //   today.getFullYear(),
+  //   today.getMonth(),
+  //   today.getDay()
+  // );
   // List<Todo>타입값을 반환하는 api의 호출상태를 나타내는 Hook
   const [todos, setTodos] = useState([]);
   // Todo 삭제 api 호출 성공시 화면에 나타낼 message 상태 Hook
@@ -62,7 +62,7 @@ function ListTodosComponent() {
       .then(
         //  삭제 api호출 성공시 수행할 함수 1. {message}화면 나타내기 2. 목록초기화
         () => {
-          setMessage(`id = ${id} Todo Delete Success!`);
+          setMessage(`엔티티 id컬럼=${id}인 게시물 삭제 성공!`);
           refreshTodos();
         }
       )
@@ -85,7 +85,7 @@ function ListTodosComponent() {
   return (
     // 부트스트랩 사용- container
     <div className="container">
-      <h1>Todo List</h1>
+      <h1>할일목록 페이지</h1>
       {/* 삭제시 {message}가 null이 아닐때만 화면에 표시 */}
       {message && <div className="alert alert-warning">{message}</div>}
       <div>
@@ -94,11 +94,11 @@ function ListTodosComponent() {
           <thead>
             <tr>
               {/* bold 처리를 위해 <th/> 사용 */}
-              <th>Description</th>
-              <th>Is Done?</th>
-              <th>Target Date</th>
-              <th>Delete</th>
-              <th>Update</th>
+              <th>내용</th>
+              <th>달성여부</th>
+              <th>목표날짜</th>
+              <th>삭제</th>
+              <th>수정</th>
             </tr>
           </thead>
           <tbody>
@@ -125,7 +125,7 @@ function ListTodosComponent() {
                         className="btn btn-warning"
                         onClick={() => deleteTodo(todo.id)}
                       >
-                        Delete
+                        삭제
                       </button>
                     </td>
                     {/* bootstrap 갱신버튼 추가 */}
@@ -134,7 +134,7 @@ function ListTodosComponent() {
                         className="btn btn-success"
                         onClick={() => updateTodo(todo.id)}
                       >
-                        Update
+                        수정
                       </button>
                     </td>
                   </tr>
@@ -145,7 +145,7 @@ function ListTodosComponent() {
         </table>
       </div>
       <div className="btn btn-success m-5" onClick={addNewTodo}>
-        Add New Todo
+        새로운 할일 추가
       </div>
     </div>
   );

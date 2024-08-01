@@ -51,10 +51,11 @@ function LoginComponent(){
             {/* <ErrorMessageComponent/> */}
 
             {/* 컴포넌트로 사용하기에는 작아서 메서드를 이용해서 메세지를 출력  */}
-
+            <h6>AWS FreeTier가 초과될경우 서버중지로 로그인이 실패할수 있습니다.</h6>
+            <h6><a href="https://suhwanyoon.github.io/React-Todo-App-Client/">로그인 실패시 대체 페이지(github pages)</a></h6>
             <h1>Test ID: yoon  PW: dummy</h1>
-            <br />
-            <h1>Login Page</h1>
+            <br/>
+            <h1>JWT 인증 Login Page</h1>
             {/* 로그인 실패상태 변수가 true라면 로그인 실패메세지를 반환 */}
             {showErrorMessage && <div className='errorMessage'>로그인 실패 ID와PW를 확인해주세요</div>}
 
