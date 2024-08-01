@@ -56,7 +56,7 @@ function LoginComponent(){
             <h6>서버DB(PostgreSQL) 기간만료시 <strong>CRUD 실행실패(반응없음)</strong>가 발생할수 있습니다.</h6>
             <h6>이페이지는 최초 로그인시 버튼 클릭후 <strong>최대2분 정도</strong> 기다려주시기 바랍니다.</h6>
             <h6>2분이 지나도 반응이 없다면 <strong>로그인 버튼을 다시한번 눌러주시기 바랍니다.</strong></h6>
-            <h6><a href="https://yoonreatclient.netlify.app/">대체 페이지(AWS서버)</a></h6>
+            <h6><a href="http://yoon-react-client.s3-website.ap-northeast-2.amazonaws.com/">대체 페이지(AWS EC2)</a></h6>
             <br />
             <h1>Test ID: yoon  PW: dummy</h1>
             <h1>JWT Login Page</h1>
